@@ -1,23 +1,25 @@
-import React, {Component} from 'react';
+import logo from './logo.svg';
 import './App.css';
-import MessagesContainer from "./Components/Messages/MessagesContainer";
-import * as firebase from "firebase";
-import AddFormContainer from "./Components/AddForm/AddFormContainer";
 
-
-export default class App extends Component {
-    componentDidMount(){
-        const db = firebase.database();
-        console.log(db);
-    }
-    render() {
-        return (
-            <div className="wrapper">
-                <div className="content-wrapper">
-                    <AddFormContainer/>
-                    <MessagesContainer/>
-                </div>
-            </div>
-        );
-    }
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
+
+export default App;
