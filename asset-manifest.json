@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/honeyhunters/static/css/main.5f361e03.chunk.css",
+    "main.js": "/honeyhunters/static/js/main.d05dac6c.chunk.js",
+    "main.js.map": "/honeyhunters/static/js/main.d05dac6c.chunk.js.map",
+    "runtime-main.js": "/honeyhunters/static/js/runtime-main.e76002fe.js",
+    "runtime-main.js.map": "/honeyhunters/static/js/runtime-main.e76002fe.js.map",
+    "static/js/2.60f07543.chunk.js": "/honeyhunters/static/js/2.60f07543.chunk.js",
+    "static/js/2.60f07543.chunk.js.map": "/honeyhunters/static/js/2.60f07543.chunk.js.map",
+    "index.html": "/honeyhunters/index.html",
+    "precache-manifest.244294565745c15960c916b4265a61fb.js": "/honeyhunters/precache-manifest.244294565745c15960c916b4265a61fb.js",
+    "service-worker.js": "/honeyhunters/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/honeyhunters/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.60f07543.chunk.js.LICENSE.txt": "/honeyhunters/static/js/2.60f07543.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e76002fe.js",
+    "static/js/2.60f07543.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.d05dac6c.chunk.js"
+  ]
+}
