@@ -1,7 +1,0 @@
-{
-  "name": "Incidents",
-  "version": "1.0.0",
-  "main": "importxlsx.js",
-  "dependencies": {
-  }
-}
