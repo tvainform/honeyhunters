@@ -1,8 +1,8 @@
 import './App.css';
 import {BrowserRouter} from "react-router-dom";
-import Form from "./components/Form";
 import Messages from "./components/Messages";
 import Header from "./components/Header";
+import React from "react";
 
 function App() {
   return (
