@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {Context} from "../index";
 import Loader from "./Loader";
+import firebase from "firebase";
 
 
 const Form = () => {
@@ -9,18 +10,31 @@ const Form = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+    const [nameDirty, setNameDirty] = useState(false)
+    const [emailDirty, setEmailDirty] = useState(false)
+    const [messageDirty, setMessageDirty] = useState(false)
+    const [nameError, setNameError] = useState('Поле ИМЯ не должно быть пустым')
+    const [emailError, setEmailError] = useState('Поле E-mail не должно быть пустым')
+    const [messageError, setMessageError] = useState('Поле КОММЕНТАРИЙ не должно быть пустым')
 
-    const [messages, loading] = useCollectionData(firestore.collection('messages'))
+    const [messages, loading] = useCollectionData(firestore.collection('messages').orderBy('createdAt'))
 
-    const myInput = (e) => {
-
+    const myInputName = (e) => {
+        setName(e.target.value)
+    }
+    const myInputEmail = (e) => {
+        setEmail(e.target.value)
+    }
+    const myInputMessage = (e) => {
+        setMessage(e.target.value)
     }
 
     const sendMessage = async () => {
         firestore.collection('messages').add({
             name: name,
             email: email,
-            message: message
+            message: message,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
         setName('')
         setEmail('')
@@ -34,43 +48,45 @@ const Form = () => {
 
 
     return (
-        <section className="content-header">
-            <div className="container-fluid">
-                <div className="row content-form py-3">
+        <div className={"content-form px-5"}>
+                <div className="row py-3">
                     <div className="col-6">
-                        <div className="w-75 mb-3">
+                        <div className="w-75 mb-4">
                             <label className="form-label">Имя <span className="text-danger">*</span></label>
                             <input
                                 type="text"
-                                className="form-control form-control-lg border-dark"
+                                className="form-control form-control-lg"
                                 name="name"
                                 autoComplete="off"
                                 value={name}
-                                onChange={myInput}
+                                onChange={myInputName}
                             />
+                            {(nameDirty && nameError) && <div style={{color:'red'}}>{nameError}</div>}
                         </div>
-                        <div className="w-75">
+                        <div className="w-75 pt-4">
                             <label className="form-label">E-mail <span className="text-danger">*</span></label>
                             <input
                                 type="email"
-                                className="form-control form-control-lg border-dark"
+                                className="form-control form-control-lg"
                                 name="email"
                                 autoComplete="off"
                                 value={email}
-                                onChange={myInput}
+                                onChange={myInputEmail}
                             />
+                            {(emailDirty && emailError) && <div style={{color:'red'}}>{emailError}</div>}
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="">
                             <label className="form-label">Комментарий <span className="text-danger">*</span></label>
                             <textarea
-                                className="form-control border-dark"
+                                className="form-control"
                                 name="message"
-                                rows="3"
+                                rows="6"
                                 value={message}
-                                onChange={myInput}
+                                onChange={myInputMessage}
                             />
+                            {(messageDirty && messageError) && <div style={{color:'red'}}>{messageError}</div>}
                         </div>
                     </div>
                 </div>
@@ -78,11 +94,6 @@ const Form = () => {
                     <button onClick={sendMessage} className="btn btn-lg btn-danger" type="button">Записать</button>
                 </div>
             </div>
-        </section>
-
-
-
-
     );
 };
 

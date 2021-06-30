@@ -5,9 +5,9 @@ import Form from "./Form";
 
 const Header = () => {
     return (
-    <section className="content-header py-5">
+    <section className="content-header py-4 px-5">
         <div className="container-fluid">
-            <div className="row">
+            <div className="row px-5">
                  <div className="col"><img className="logo" src={logo} alt="logo" /></div>
             </div>
             <div className="row py-3">

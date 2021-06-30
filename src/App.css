@@ -9,26 +9,30 @@
 body{
   font-family: 'Roboto', sans-serif;
 }
-.content-header{background: #2d3136;padding: 0 50px;color: #d7d7d7;}
+.content-header, .content-footer{background: #2d3136;color: #d7d7d7;}
 .content-header .logo{width: 200px;}
 .content-header .icon{
   height: 20vmin;
   pointer-events: none;
 }
 
+
 .content-form input, .content-form textarea{
   background-color: #2e3237;
-  border: 2px solid;
+  border: 1px solid #6c757d;
   color: inherit;
+  font-size: 14pt;
 }
 .content-form input:focus, .content-form textarea:focus{
-  border: 2px solid red;
+  border: 1px solid red;
   background-color: #2f3136;
   box-shadow: none;
+  color: #d7d7d7;
 }
-.content-form textarea{height: 200px;}
-.content{background-color: #f6f6f7;}
+.content{background-color: #f6f6f7;min-height: 100%;}
 
+.message-item .card-header{background: #2d3136;}
+.message-item:nth-child(even) .card-header{background: green;}
 
 .lds-hourglass {
   display: inline-block;
